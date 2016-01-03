@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Scala教程]]></title>
+  <link href="http://scalajiaocheng.github.io/atom.xml" rel="self"/>
+  <link href="http://scalajiaocheng.github.io/"/>
+  
+  <updated>2016-01-03T23:39:02+08:00</updated>
+  <id>http://scalajiaocheng.github.io/</id>
+  <author>
+    <name><![CDATA[Scala教程]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Scala的虚无与飘渺]]></title>
+    <link href="http://scalajiaocheng.github.io/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/"/>
+    <updated>2016-01-03T17:46:05+08:00</updated>
+    <id>http://scalajiaocheng.github.io/blog/2016/01/03/scalade-xu-wu-yu-piao-miao</id>
+    <content type="html"><![CDATA[<p>Null-&gt;null <br />
+Nothing <br />
+Nil-&gt;List[Nothing]  <br />
+None-&gt;Option <br />
+Unit  <br />
+很多人抱怨Scala相比于Java过于复杂了：大部分使用过Scala的程序员都没有能深刻理解它的类型系统和Scala的函数式编程。Scala的类型系统跟Java和C++很不一样，Scala想把面向对象纯粹化（学院派的作风？），不能有破坏面向对象的一切因素出现。<code>null</code>、<code>NULL</code>、<code>int</code>、…这些都是不和谐的东西，应该割掉。Scala又给了太多了空间给程序员，你可以使用传统的命令式编程风格，也可以使用函数式风格，一个语言写出了不同的代码。这个跟汉语有很多方言，极为相似。太多的自由会浪费Scala的一片好心。一个思路是在封装完Java的功能后，尽量使用Scala推荐的函数式风格来写面向对象的程序。  <br />
+进入Scala，你就进入了虚无缥缈的太虚境地。在何为有？何为无？的问题上？Scala的设计走得很远。Scala的有即<code>Any</code>，Scala的无是<code>Null</code>，<code>null</code>，<code>Nil</code>，<code>Nothing</code>，<code>None</code>，<code>Unit</code>。Scala的无太让人手足无措，今天就讨论Scala的无。  <br />
+要想在正确的地方使用正确的无，就要先理解它们分别表示的含义。</p>
+
+ <a href="http://scalajiaocheng.github.io/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/">Read on <i class="fa fa-hand-o-right"></i></a>]]></content>
+  </entry>
+  
+</feed>

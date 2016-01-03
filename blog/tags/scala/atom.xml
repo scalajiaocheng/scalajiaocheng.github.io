@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Scala | Scala教程]]></title>
+  <link href="http://scalajiaocheng.github.io/blog/tags/scala/atom.xml" rel="self"/>
+  <link href="http://scalajiaocheng.github.io/"/>
+  <updated>2016-01-03T23:39:02+08:00</updated>
+  <id>http://scalajiaocheng.github.io/</id>
+  <author>
+    <name><![CDATA[Scala教程]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Scala的虚无与飘渺]]></title>
+    <link href="http://scalajiaocheng.github.io/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/"/>
+    <updated>2016-01-03T17:46:05+08:00</updated>
+    <id>http://scalajiaocheng.github.io/blog/2016/01/03/scalade-xu-wu-yu-piao-miao</id>
+    <content type="html"><![CDATA[<p>Null-&gt;null <br />
+Nothing <br />
+Nil-&gt;List[Nothing]  <br />
+None-&gt;Option <br />
+Unit  <br />
+很多人抱怨Scala相比于Java过于复杂了：大部分使用过Scala的程序员都没有能深刻理解它的类型系统和Scala的函数式编程。Scala的类型系统跟Java和C++很不一样，Scala想把面向对象纯粹化（学院派的作风？），不能有破坏面向对象的一切因素出现。<code>null</code>、<code>NULL</code>、<code>int</code>、…这些都是不和谐的东西，应该割掉。Scala又给了太多了空间给程序员，你可以使用传统的命令式编程风格，也可以使用函数式风格，一个语言写出了不同的代码。这个跟汉语有很多方言，极为相似。太多的自由会浪费Scala的一片好心。一个思路是在封装完Java的功能后，尽量使用Scala推荐的函数式风格来写面向对象的程序。  <br />
+进入Scala，你就进入了虚无缥缈的太虚境地。在何为有？何为无？的问题上？Scala的设计走得很远。Scala的有即<code>Any</code>，Scala的无是<code>Null</code>，<code>null</code>，<code>Nil</code>，<code>Nothing</code>，<code>None</code>，<code>Unit</code>。Scala的无太让人手足无措，今天就讨论Scala的无。  <br />
+要想在正确的地方使用正确的无，就要先理解它们分别表示的含义。</p>
+
+<!-- more -->
+
+<ul id="markdown-toc">
+  <li><a href="#nullnull" id="markdown-toc-nullnull">Null&amp;null</a></li>
+  <li><a href="#nil" id="markdown-toc-nil">Nil</a></li>
+  <li><a href="#nothing" id="markdown-toc-nothing">Nothing</a></li>
+  <li><a href="#none" id="markdown-toc-none">None</a></li>
+  <li><a href="#unit" id="markdown-toc-unit">Unit</a></li>
+</ul>
+<div class="group"></div>
+
+<div class="center_wrapper">
+  <div></div>
+  <div>
+    
+
+  </div>
+</div>
+
+<h2 id="nullnull">Null&amp;null</h2>
+
+<p>很多人一辈子都没有走出这个无。<code>Null</code>是一个<code>Trait</code>，你不能创建她它的实例。但是Scala在语言层面上存在一个<code>Null</code>的实例，那就是<code>null</code>。Java中的<code>null</code>意味着引用并没有指向任何对象。但存在一个悖论，一切都是对象，那没有对象是不是也是对象呢？Scala定义了一个类似于对象语义的<code>Null</code>，和一个值语义的<code>null</code>。这样面向对象在空引用的情况下完备了。如果你写了一个带有<code>Null</code>作为参数的对象，那么你传入的参数只能是<code>null</code>，或者指向<code>Null</code>的引用。</p>
+
+<pre><code>scala&gt; def tryit(value: Null) {}
+tryit: (value: Null)Unit
+
+scala&gt; tryit("hey")
+&lt;console&gt;:12: error: type mismatch;
+ found   : String("hey")
+ required: Null
+       tryit("hey")
+	     ^
+
+scala&gt; val someRef: String = null
+someRef: String = null
+
+scala&gt; tryit(someRef)
+&lt;console&gt;:13: error: type mismatch;
+ found   : String
+ required: Null
+       tryit(someRef)
+	     ^
+
+scala&gt; tryit(null)
+
+scala&gt; val nullRef: Null = null
+nullRef: Null = null
+
+scala&gt; tryit(nullRef)
+</code></pre>
+
+<p>第四行我们试图传入一个<code>String</code>，自然不能工作。第14行我们传入一个<code>null</code>引用，但是仍然不能工作，为什么呢？因为<code>null</code>引用指向的是<code>String</code>类型。它可能在运行时是<code>null</code>，但是在编译时类型检查却不认同，编译器认为他是个<code>String</code>。</p>
+
+<h2 id="nil">Nil</h2>
+
+<p><code>Nil</code>是一个继承<code>List[Nothing]</code>的对象。它就是一个空的列表，下面是一些使用实例：  <br />
+	scala&gt; Nil
+	res16: scala.collection.immutable.Nil.type = List()</p>
+
+<pre><code>scala&gt; Nil.length
+res17: Int = 0
+
+scala&gt; "ABC":: Nil
+res18: List[String] = List(ABC)
+
+scala&gt; Nil :: Nil
+res19: List[scala.collection.immutable.Nil.type] = List(List())
+</code></pre>
+
+<p>可以看出，<code>Nil</code>长度为0。它并不是一无所有，它是一个容器，一个列表，只是没有存放内容而已。</p>
+
+<h2 id="nothing">Nothing</h2>
+
+<p><code>Nothing</code>可能比较难理解。<code>Nothing</code>也是一个<code>Trait</code>，它继承自<code>Any</code>，而<code>Any</code>是整个Scala类型系统的根。<code>Nothing</code>是没有实例的，但它是任何对象的子类，他是<code>List</code>的子类，是<code>String</code>的子类，是<code>Int</code>的子类，是任何用户自定义类型的子类。  <br />
+前面提到<code>Nil</code>是一个空的<code>List[Nothing]</code>。由于<code>Nothing</code>是任何类型的子类，那么<code>Nil</code>就可以当做是一个空的<code>String List</code>，空的<code>Int List</code>，甚至使<code>Any List</code>。<code>Nothing</code>比较适合用来定义基类容器。</p>
+
+<pre><code>scala&gt; val emptyStringList: List[String] = List[Nothing]()
+emptyStringList: List[String] = List()
+
+scala&gt; val emptyIntList: List[Int] = List[Nothing]()
+emptyIntList: List[Int] = List()
+
+scala&gt; val emptyStringList: List[String] = List[Nothing]("abc")
+&lt;console&gt;:10: error: type mismatch;
+ found   : String("abc")
+ required: Nothing
+       val emptyStringList: List[String] = List[Nothing]("abc")
+</code></pre>
+
+<p>第一行，我们将一个<code>List[Nothing]</code>赋值给一个<code>List[String]</code>。一个<code>Nothing</code>是一个<code>String</code>，因此是正确的。第四行，我们将一个<code>List[Nothing]</code>赋值给一个<code>List[Int]</code>。一个<code>Nothing</code>是一个<code>Int</code>，因此是正确的。<code>Nothing</code>是任何类型的子类，但是上面的<code>List[Nothing]</code>都不包含任何成员。当我们创建一个包含一个<code>String</code>的<code>List[Nothing]</code>的<code>List</code>，并把它赋值给<code>List[String]</code>，会出现什么情况？它会失败，因为<code>Nothing</code>并不是任何类型的父类，并且也不存在<code>Nothing</code>的实例。任何<code>Nothing</code>的容器必然是空的，是<code>Nil</code>。  <br />
+另一种<code>Nothing</code>的用法是作为不返回函数的返回值。因为<code>Nothing</code>没有任何实例，而函数的返回值必定是一个值，是一个对象，这样定义为<code>Nothing</code>为返回值的函数实际上不可能返回。</p>
+
+<pre><code>scala&gt; def test():Nothing = { throw new IllegalArgumentException }
+test: ()Nothing
+
+scala&gt; test
+java.lang.IllegalArgumentException
+  at .test(&lt;console&gt;:10)
+  ... 33 elided
+</code></pre>
+
+<h2 id="none">None</h2>
+
+<p>写Java程序的时候，经常会碰到没有有意义的东西可以返回，我们返回<code>null</code>。但返回<code>null</code>有一些问题，调用方必须检查返回值，不然会有<code>NullPointerException</code>的异常。这逼迫我们去check函数的返回值。还有一种解决办法是使用异常，但增加try/catch块，并不是明智的选择。                     <br />
+Scala内置一种解决办法。如果你想返回一个<code>String</code>，但可能有的时候得不到有意义的返回值，我们可以让函数返回<code>Option[String]</code>。</p>
+
+<pre><code>scala&gt; def getAsStringMaybe(num: Int): Option[String] = {
+     |   if (num &gt;= 0) Some("A positive number!")
+     |   else None  //A number less than 0? Impossible!
+     | }
+getAsStringMaybe: (num: Int)Option[String]
+
+scala&gt; def printResult(num: Int) = {
+     |     getAsStringMaybe(num) match {
+     |         case Some(str) =&gt; println(str)
+     |         case None =&gt; println("No string!")
+     | }
+     | }
+printResult: (num: Int)Unit
+
+scala&gt; printResult(100)
+A positive number!
+
+scala&gt; printResult(-50)
+No string!
+</code></pre>
+
+<p>函数<code>getAStringMaybe</code>返回<code>Option[String]</code>。<code>Option</code>是一个抽象类，它有两个子类：<code>Some</code>和<code>None</code>。因此，初始化一个<code>Option</code>有两种方法。<code>getAStringMaybe</code>返回的只可能是<code>Some[String]</code>或<code>None</code>。<code>Some</code>和<code>None</code>又是<code>Case Class</code>，可以直接用来做模式匹配，很容易用来处理返回值。 <br />
+类似地，<code>Option[T]</code>作为返回值，意味着调用者可能会收到<code>Some[T]</code>或<code>None</code>。 <br />
+其实<code>Option</code>作为返回值，并没有比返回<code>null</code>好多少。代码里面充满了<code>Option</code>和模式匹配的代码，也不优雅，所以对待<code>Option</code>还是慎重。</p>
+
+<h2 id="unit">Unit</h2>
+
+<p><code>Unit</code>跟java的<code>void</code>一样，表示函数没有返回值。</p>
+
+<pre><code>scala&gt; def doThreeTimes(fn: (Int) =&gt; Unit) = {
+     |     fn(1); fn(2);fn(3);
+     | }
+doThreeTimes: (fn: Int =&gt; Unit)Unit
+
+scala&gt; doThreeTimes(println)
+1
+2
+3
+
+scala&gt; def specialPrint(num: Int) = {
+     |     println("&gt;&gt;&gt;" + num + "&lt;&lt;&lt;")
+     | }
+specialPrint: (num: Int)Unit
+
+scala&gt; doThreeTimes(specialPrint)
+&gt;&gt;&gt;1&lt;&lt;&lt;
+&gt;&gt;&gt;2&lt;&lt;&lt;
+&gt;&gt;&gt;3&lt;&lt;&lt;
+</code></pre>
+
+<p>总的来看，Scala定义如此多的无，主要目的是为了保证它的类型系统的完整性，同时细化概念。到底好不好呢？下一个十年再下定论。</p>
+]]></content>
+  </entry>
+  
+</feed>
