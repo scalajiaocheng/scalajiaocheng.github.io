@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Scale类型 | Scala教程]]></title>
+  <link href="http://scalajiaocheng.github.io/blog/categories/scalelei-xing/atom.xml" rel="self"/>
+  <link href="http://scalajiaocheng.github.io/"/>
+  <updated>2016-01-06T00:40:12+08:00</updated>
+  <id>http://scalajiaocheng.github.io/</id>
+  <author>
+    <name><![CDATA[Scala教程]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[scala类型系统this别名和自身类型]]></title>
+    <link href="http://scalajiaocheng.github.io/blog/2015/12/28/scalalei-xing-xi-tong-:-thisbie-ming-he-zi-shen-lei-xing/"/>
+    <updated>2015-12-28T04:23:25+08:00</updated>
+    <id>http://scalajiaocheng.github.io/blog/2015/12/28/scalalei-xing-xi-tong-:-thisbie-ming-he-zi-shen-lei-xing</id>
+    <content type="html"><![CDATA[<p><code>self =&gt;</code>相当于给<code>this</code>起了一个别名为<code>self</code></p>
+
+<pre><code>class A { 
+    self =&gt;  //this别名
+    val x=2 
+    def foo = self.x + this.x 
+}
+</code></pre>
+
+<p><code>self</code>不是关键字，可以用除了<code>this</code>外的任何名字命名(除关键字)。在A内部，可以用this指代当前对象，也可以用self指代，两者是等价的。 <br />
+它的一个场景是用在有内部类中：                        <br />
+<!-- more --></p>
+
+<div class="group"></div>
+
+<div class="center_wrapper">
+  <div></div>
+  <div>
+    
+
+  </div>
+</div>
+
+<pre><code>scala&gt; class Outer {
+     |     outer =&gt;
+     |     var v1 = 1
+     |     class Inner {
+     |         println(outer.v1) // 用outer表示外部类，相当于Outer.this
+     |     }
+     | }
+</code></pre>
+
+<p>对于<code>this</code>别名<code>self =&gt;</code>这种写法形式，是自身类型(self type)的一种特殊方式。  <br />
+<code>self</code>在不声明类型的情况下，只是<code>this</code>的别名，所以不允许用<code>this</code>做<code>this</code>的别名</p>
+
+<pre><code>scala&gt; class C { this =&gt; } //error 不能用this做别名
+</code></pre>
+
+<p>但当声明了类型的时候，就不是别名的用途了，这个时候表示自身类型，比如：</p>
+
+<pre><code>scala&gt; class C { this:X =&gt; }
+</code></pre>
+
+<p><code>this:X =&gt;</code> 要求<code>C</code>在实例化时或定义C的子类时，必须混入指定的<code>X</code>类型，这个<code>X</code>类型也可以指定为当前类型</p>
+
+<pre><code>scala&gt; class C { this:C =&gt; } // 不会报错
+</code></pre>
+
+<p>自身类型的存在相当于让当前类变得“抽象”了，它假设当前对象(<code>this</code>)也符合指定的类型，因为自身类型<code>this:X =&gt;</code>的存在，当前类构造实例时需要同时满足<code>X</code>类型</p>
+
+<pre><code>scala&gt; new C // 不满足
+&lt;console&gt;:10: error: class C cannot be instantiated because it does not conform to its self-type C with X
+
+// ok, 相当于构造一个复合类型(C with X)的实例
+scala&gt; val c = new C with X
+</code></pre>
+
+<p>在定义C的子类时，因为自身类型的约束，也必须满足<code>X</code>类型，即子类必须也混入<code>X</code></p>
+
+<pre><code>scala&gt; class D extends C with X
+</code></pre>
+
+<p>注意上面两种情况下<code>X</code>都为特质(trait)。 <br />
+如果自身类型是定义在特质中（大多情况下）：</p>
+
+<pre><code>scala&gt; trait T { this:X =&gt; } 
+</code></pre>
+
+<p>那么当某个class或object 要继承或混入<code>T</code>时，必须也要满足<code>X</code>类型，如果该类/单例不是<code>X</code>的子类的话就要同时混入<code>X</code>才可以</p>
+
+<pre><code>scala&gt; object A extends T with X
+</code></pre>
+
+<p>最后，自身类型也可以声明为复合类型</p>
+
+<pre><code>this: X with Y with Z =&gt; 
+</code></pre>
+
+<p>或声明为结构类型</p>
+
+<pre><code>this: { def close:Unit} =&gt; 
+</code></pre>
+
+<p>另外，自身类型中，可以用<code>this</code>也可以用其他名字，如<code>self</code>。</p>
+
+]]></content>
+  </entry>
+  
+</feed>

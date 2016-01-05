@@ -5,7 +5,7 @@
   <link href="http://scalajiaocheng.github.io/atom.xml" rel="self"/>
   <link href="http://scalajiaocheng.github.io/"/>
   
-  <updated>2016-01-06T00:38:06+08:00</updated>
+  <updated>2016-01-06T00:40:12+08:00</updated>
   <id>http://scalajiaocheng.github.io/</id>
   <author>
     <name><![CDATA[Scala教程]]></name>
@@ -29,6 +29,61 @@ Unit  <br />
 要想在正确的地方使用正确的无，就要先理解它们分别表示的含义。</p>
 
  <a href="http://scalajiaocheng.github.io/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/">Read on <i class="fa fa-hand-o-right"></i></a>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Scala CHAPTER 2 Working with Data: Literals, Values,Variables, and Types]]></title>
+    <link href="http://scalajiaocheng.github.io/blog/2015/12/29/learning-scala-chapter-2-working-with-data-literals-values-variables-and-types/"/>
+    <updated>2015-12-29T23:25:28+08:00</updated>
+    <id>http://scalajiaocheng.github.io/blog/2015/12/29/learning-scala-chapter-2-working-with-data-literals-values-variables-and-types</id>
+    <content type="html"><![CDATA[<p>In this chapter we will cover the core data and variable types in Scala. Let’s start with the definitions of the terms <code>literal</code>, <code>value</code>, <code>variable</code>, and <code>type</code>:</p>
+
+<ul>
+  <li>A literal (or literal data) is data that appears directly in the source code, like the number <code>5</code>, the character <code>A</code>, and the text “<code>Hello, World.</code>”</li>
+  <li>A value is an immutable, typed storage unit. A value can be assigned data when it is defined, but can never be reassigned.</li>
+  <li>A variable is a mutable, typed storage unit. A variable can be assigned data when it is defined and can also be reassigned data at any time.</li>
+  <li>A type is the kind of data you are working with, a definition or classification of data.</li>
+</ul>
+
+<p>All data in Scala corresponds to a specific type, and all Scala types are defined as classes with methods that operate on the data.       <br />
+ <a href="http://scalajiaocheng.github.io/blog/2015/12/29/learning-scala-chapter-2-working-with-data-literals-values-variables-and-types/">Read on <i class="fa fa-hand-o-right"></i></a>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Scala CHAPTER 1 Getting Started with the ScalableLanguage]]></title>
+    <link href="http://scalajiaocheng.github.io/blog/2015/12/29/learning-scala-chapter-1-getting-started-with-the-scalablelanguage/"/>
+    <updated>2015-12-29T22:04:10+08:00</updated>
+    <id>http://scalajiaocheng.github.io/blog/2015/12/29/learning-scala-chapter-1-getting-started-with-the-scalablelanguage</id>
+    <content type="html"><![CDATA[<p>The Scala programming language has a wonderfully continental(adj. 大陆的；大陆性的) ring to its name, as befits its origins at the École polytechnique fédérale de Lausanne (EPFL) in Lausanne,Switzerland. The Scala logo represents a circular stairway, which may lead you to believe its origin is the term <strong>La Scala</strong>, meaning a staircase or ladder in Italian, or that it derives from the famous Italian opera house <strong>Teatro alla Scala</strong>. In fact the name Scala is an abbreviation of the term SCAlable LAnguage, a fitting description of its intention. Professor Martin Odersky and his group at EPFL created the language in 2003 to provide a high-performance, concurrent-ready environment for functional programming and object-oriented programming on the Java Virtual Machine (JVM) platform.                          <br />
+ <a href="http://scalajiaocheng.github.io/blog/2015/12/29/learning-scala-chapter-1-getting-started-with-the-scalablelanguage/">Read on <i class="fa fa-hand-o-right"></i></a>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[scala类型系统this别名和自身类型]]></title>
+    <link href="http://scalajiaocheng.github.io/blog/2015/12/28/scalalei-xing-xi-tong-:-thisbie-ming-he-zi-shen-lei-xing/"/>
+    <updated>2015-12-28T04:23:25+08:00</updated>
+    <id>http://scalajiaocheng.github.io/blog/2015/12/28/scalalei-xing-xi-tong-:-thisbie-ming-he-zi-shen-lei-xing</id>
+    <content type="html"><![CDATA[<p><code>self =&gt;</code>相当于给<code>this</code>起了一个别名为<code>self</code></p>
+
+<pre><code>class A { 
+    self =&gt;  //this别名
+    val x=2 
+    def foo = self.x + this.x 
+}
+</code></pre>
+
+<p><code>self</code>不是关键字，可以用除了<code>this</code>外的任何名字命名(除关键字)。在A内部，可以用this指代当前对象，也可以用self指代，两者是等价的。 <br />
+它的一个场景是用在有内部类中：                        <br />
+ <a href="http://scalajiaocheng.github.io/blog/2015/12/28/scalalei-xing-xi-tong-:-thisbie-ming-he-zi-shen-lei-xing/">Read on <i class="fa fa-hand-o-right"></i></a>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Programming Scala, 2nd Edition CHAPTER 1Zero to Sixty: Introducing Scala]]></title>
+    <link href="http://scalajiaocheng.github.io/blog/2015/12/28/programming-scala-2nd-edition-chapter-1zero-to-sixty-introducing-scala/"/>
+    <updated>2015-12-28T03:20:51+08:00</updated>
+    <id>http://scalajiaocheng.github.io/blog/2015/12/28/programming-scala-2nd-edition-chapter-1zero-to-sixty-introducing-scala</id>
+    <content type="html"><![CDATA[<p>Let’s start with a brief look at why you should give Scala a serious look. Then we’ll dive in and write some code.  <br />
+ <a href="http://scalajiaocheng.github.io/blog/2015/12/28/programming-scala-2nd-edition-chapter-1zero-to-sixty-introducing-scala/">Read on <i class="fa fa-hand-o-right"></i></a>]]></content>
   </entry>
   
 </feed>

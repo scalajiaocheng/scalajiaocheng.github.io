@@ -6,19 +6,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Blog Archive</title>
+  <title>scala类型系统this别名和自身类型</title>
   <meta name="author" content="Scala教程">
   
   
-  <meta name="title" content="Blog Archive">
-  <meta name="description" content="2016 Jan 3rd, 2016 Top › Scala › Scala Scala的虚无与飘渺 2015 Dec 29th, 2015 Top › Learning scala › Learning Scala , Scala , Scala书籍 Learning Scala CHAPTER &hellip;">
+  <meta name="title" content="scala类型系统this别名和自身类型">
+  <meta name="description" content="self =&gt;相当于给this起了一个别名为self class A { self =&gt; //this别名 val x=2 def foo = self.x + this.x } self不是关键字，可以用除了this外的任何名字命名(除关键字)。在A内部，可以用this指代当前对象， &hellip;">
   
   
-  <meta property="og:title" content="Blog Archive">
+  <meta property="og:title" content="scala类型系统this别名和自身类型">
   <meta property="og:type" content="blog">
-  <meta property="og:description" content="2016 Jan 3rd, 2016 Top › Scala › Scala Scala的虚无与飘渺 2015 Dec 29th, 2015 Top › Learning scala › Learning Scala , Scala , Scala书籍 Learning Scala CHAPTER &hellip;">
+  <meta property="og:description" content="self =&gt;相当于给this起了一个别名为self class A { self =&gt; //this别名 val x=2 def foo = self.x + this.x } self不是关键字，可以用除了this外的任何名字命名(除关键字)。在A内部，可以用this指代当前对象， &hellip;">
   
-  <meta property="og:url" content="http://scalajiaocheng.github.io/blog/archives/">
+  <meta property="og:url" content="http://scalajiaocheng.github.io/blog/2015/12/28/scalalei-xing-xi-tong-:-thisbie-ming-he-zi-shen-lei-xing/">
   
   
   
@@ -34,7 +34,7 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="canonical" href="http://scalajiaocheng.github.io/blog/archives/">
+  <link rel="canonical" href="http://scalajiaocheng.github.io/blog/2015/12/28/scalalei-xing-xi-tong-:-thisbie-ming-he-zi-shen-lei-xing/">
   <link href="" rel="icon">
   <link href="http://scalajiaocheng.github.io/atom.xml" rel="alternate" title="Scala教程" type="application/atom+xml">
   <link id="screen-css" href="/stylesheets/screen.css" rel="stylesheet">
@@ -86,8 +86,8 @@
 
   <div id="main">
     <div id="content">
-      <div><!-- page -->
-  <article role="article">
+      <div><!-- post -->
+  <article role="article" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
     
 
 <!--
@@ -95,7 +95,7 @@
 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 xmlns:dc="http://purl.org/dc/elements/1.1/"
 xmlns:foaf="http://xmlns.com/foaf/0.1/">
-<rdf:Description rdf:about="http://scalajiaocheng.github.io/blog/archives/">
+<rdf:Description rdf:about="http://scalajiaocheng.github.io/blog/2015/12/28/scalalei-xing-xi-tong-:-thisbie-ming-he-zi-shen-lei-xing/">
 <foaf:maker rdf:parseType="Resource">
 <foaf:holdsAccount>
 <foaf:OnlineAccount foaf:accountName="">
@@ -118,14 +118,48 @@ xmlns:foaf="http://xmlns.com/foaf/0.1/">
 
     <!-- google_ad_section_start -->
     
-    <header>
-      
-      <h1 class="entry-title">Blog Archive</h1>
-    </header>
+  
+
+
+<header>
+  
+  <div class="meta">
+    <time datetime='2015-12-28T04:23:25+08:00'><span class='time'>Dec 28th, 2015</span>
     
+  
+
+<ol class="breadcrumbs">
+  <li><a href="http://scalajiaocheng.github.io"><span>Top</span></a></li>
+  
     
+    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/categories/scale类型/"><span>Scale类型</span></a></li>
+  
+  
     
+    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/tags/scala类型/"><span>Scala类型</span></a>
     
+    </li>
+  
+</ol>
+
+
+  </div>
+  
+  
+  
+  
+  <h1 class="entry-title" itemprop="name headline"><a href="/blog/2015/12/28/scalalei-xing-xi-tong-:-thisbie-ming-he-zi-shen-lei-xing/" itemprop="url">scala类型系统this别名和自身类型</a></h1>
+  
+  
+  
+</header>
+
+
+
+
+
+
+
   
 
 
@@ -147,164 +181,103 @@ xmlns:foaf="http://xmlns.com/foaf/0.1/">
   </ul>
 </div>
 
+
+
+
+
+
+<div class="entry-content" itemprop="articleBody">
+  <div class="group">
     
+    <p><code>self =&gt;</code>相当于给<code>this</code>起了一个别名为<code>self</code></p>
+
+<pre><code>class A { 
+    self =&gt;  //this别名
+    val x=2 
+    def foo = self.x + this.x 
+}
+</code></pre>
+
+<p><code>self</code>不是关键字，可以用除了<code>this</code>外的任何名字命名(除关键字)。在A内部，可以用this指代当前对象，也可以用self指代，两者是等价的。 <br />
+它的一个场景是用在有内部类中：                        <br />
+
+  </div>
+  <!-- more -->
+  <div class="group">
+    </p>
+
+<div class="group"></div>
+
+<div class="center_wrapper">
+  <div></div>
+  <div>
     
-    
-    
-    <div class="entry-content">
-    <div id="blog-archives" itemscope itemtype="http://schema.org/Blog">
 
-
-
-
-  
-  <h2>2016</h2>
-
-<article class="index-article" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-  <time itemprop='datePublished dateModified' class='entry-date updated' datetime='2016-01-03T17:46:05+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span></time>
-
-  
-
-<ol class="breadcrumbs">
-  <li><a href="http://scalajiaocheng.github.io"><span>Top</span></a></li>
-  
-    
-    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/categories/scala/"><span>Scala</span></a></li>
-  
-  
-    
-    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/tags/scala/"><span>Scala</span></a>
-    
-    </li>
-  
-</ol>
-
-
-<h1 itemprop="name headline"><a href="/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/">Scala的虚无与飘渺</a></h1>
-
-</article>
-
-
-
-  
-  <h2>2015</h2>
-
-<article class="index-article" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-  <time itemprop='datePublished dateModified' class='entry-date updated' datetime='2015-12-29T23:25:28+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span></time>
-
-  
-
-<ol class="breadcrumbs">
-  <li><a href="http://scalajiaocheng.github.io"><span>Top</span></a></li>
-  
-    
-    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/categories/learning scala/"><span>Learning scala</span></a></li>
-  
-  
-    
-    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/tags/learning scala/"><span>Learning Scala</span></a>
-    
-      
-        <span>, </span>
-        <a href="/blog/tags/scala/"><span>Scala</span></a>
-      
-        <span>, </span>
-        <a href="/blog/tags/scala书籍/"><span>Scala书籍</span></a>
-      
-    
-    </li>
-  
-</ol>
-
-
-<h1 itemprop="name headline"><a href="/blog/2015/12/29/learning-scala-chapter-2-working-with-data-literals-values-variables-and-types/">Learning Scala CHAPTER 2 Working with Data: Literals, Values,Variables, and Types</a></h1>
-
-</article>
-
-
-
-<article class="index-article" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-  <time itemprop='datePublished dateModified' class='entry-date updated' datetime='2015-12-29T22:04:10+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span></time>
-
-  
-
-<ol class="breadcrumbs">
-  <li><a href="http://scalajiaocheng.github.io"><span>Top</span></a></li>
-  
-    
-    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/categories/learning scala/"><span>Learning scala</span></a></li>
-  
-  
-    
-    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/tags/scala/"><span>Scala</span></a>
-    
-      
-        <span>, </span>
-        <a href="/blog/tags/learning scala/"><span>Learning Scala</span></a>
-      
-        <span>, </span>
-        <a href="/blog/tags/scala书籍/"><span>Scala书籍</span></a>
-      
-    
-    </li>
-  
-</ol>
-
-
-<h1 itemprop="name headline"><a href="/blog/2015/12/29/learning-scala-chapter-1-getting-started-with-the-scalablelanguage/">Learning Scala CHAPTER 1 Getting Started with the ScalableLanguage</a></h1>
-
-</article>
-
-
-
-<article class="index-article" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-  <time itemprop='datePublished dateModified' class='entry-date updated' datetime='2015-12-28T04:23:25+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span></time>
-
-  
-
-<ol class="breadcrumbs">
-  <li><a href="http://scalajiaocheng.github.io"><span>Top</span></a></li>
-  
-    
-    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/categories/scale类型/"><span>Scale类型</span></a></li>
-  
-  
-    
-    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/tags/scala类型/"><span>Scala类型</span></a>
-    
-    </li>
-  
-</ol>
-
-
-<h1 itemprop="name headline"><a href="/blog/2015/12/28/scalalei-xing-xi-tong-:-thisbie-ming-he-zi-shen-lei-xing/">scala类型系统this别名和自身类型</a></h1>
-
-</article>
-
-
-
-<article class="index-article" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-  <time itemprop='datePublished dateModified' class='entry-date updated' datetime='2015-12-28T03:20:51+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span></time>
-
-  
-
-<ol class="breadcrumbs">
-  <li><a href="http://scalajiaocheng.github.io"><span>Top</span></a></li>
-  
-  
-    
-    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/tags/scala/"><span>Scala</span></a>
-    
-    </li>
-  
-</ol>
-
-
-<h1 itemprop="name headline"><a href="/blog/2015/12/28/programming-scala-2nd-edition-chapter-1zero-to-sixty-introducing-scala/">Programming Scala, 2nd Edition CHAPTER 1Zero to Sixty: Introducing Scala</a></h1>
-
-</article>
-
+  </div>
 </div>
+
+<pre><code>scala&gt; class Outer {
+     |     outer =&gt;
+     |     var v1 = 1
+     |     class Inner {
+     |         println(outer.v1) // 用outer表示外部类，相当于Outer.this
+     |     }
+     | }
+</code></pre>
+
+<p>对于<code>this</code>别名<code>self =&gt;</code>这种写法形式，是自身类型(self type)的一种特殊方式。  <br />
+<code>self</code>在不声明类型的情况下，只是<code>this</code>的别名，所以不允许用<code>this</code>做<code>this</code>的别名</p>
+
+<pre><code>scala&gt; class C { this =&gt; } //error 不能用this做别名
+</code></pre>
+
+<p>但当声明了类型的时候，就不是别名的用途了，这个时候表示自身类型，比如：</p>
+
+<pre><code>scala&gt; class C { this:X =&gt; }
+</code></pre>
+
+<p><code>this:X =&gt;</code> 要求<code>C</code>在实例化时或定义C的子类时，必须混入指定的<code>X</code>类型，这个<code>X</code>类型也可以指定为当前类型</p>
+
+<pre><code>scala&gt; class C { this:C =&gt; } // 不会报错
+</code></pre>
+
+<p>自身类型的存在相当于让当前类变得“抽象”了，它假设当前对象(<code>this</code>)也符合指定的类型，因为自身类型<code>this:X =&gt;</code>的存在，当前类构造实例时需要同时满足<code>X</code>类型</p>
+
+<pre><code>scala&gt; new C // 不满足
+&lt;console&gt;:10: error: class C cannot be instantiated because it does not conform to its self-type C with X
+
+// ok, 相当于构造一个复合类型(C with X)的实例
+scala&gt; val c = new C with X
+</code></pre>
+
+<p>在定义C的子类时，因为自身类型的约束，也必须满足<code>X</code>类型，即子类必须也混入<code>X</code></p>
+
+<pre><code>scala&gt; class D extends C with X
+</code></pre>
+
+<p>注意上面两种情况下<code>X</code>都为特质(trait)。 <br />
+如果自身类型是定义在特质中（大多情况下）：</p>
+
+<pre><code>scala&gt; trait T { this:X =&gt; } 
+</code></pre>
+
+<p>那么当某个class或object 要继承或混入<code>T</code>时，必须也要满足<code>X</code>类型，如果该类/单例不是<code>X</code>的子类的话就要同时混入<code>X</code>才可以</p>
+
+<pre><code>scala&gt; object A extends T with X
+</code></pre>
+
+<p>最后，自身类型也可以声明为复合类型</p>
+
+<pre><code>this: X with Y with Z =&gt; 
+</code></pre>
+
+<p>或声明为结构类型</p>
+
+<pre><code>this: { def close:Unit} =&gt; 
+</code></pre>
+
+<p>另外，自身类型中，可以用<code>this</code>也可以用其他名字，如<code>self</code>。</p>
+
 
     
 <div class="center_wrapper">
@@ -317,15 +290,79 @@ xmlns:foaf="http://xmlns.com/foaf/0.1/">
 
 
 
-    </div>
-    
+  </div>
+</div>
+<!-- </div><footer> * pseudo line for the function raw_content() -->
+
+
+
     <!-- google_ad_section_end -->
-    
     <footer>
       
+      <p class="meta">
+        
+  
+
+<span class="byline">Posted by Scala教程</span>
+
+        <span class="date-wrapper">Posted: <time itemprop='datePublished dateModified' class='entry-date updated' datetime='2015-12-28T04:23:25+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span></time></span>
+        
+  
+
+
+
+<span class="categories">
+  Posted in <a class='category' href='/blog/categories/scalelei-xing/'><span itemprop='articleSection'>Scale类型</span></a>
+</span>
+
+
+        
+  
+
+
+
+<span class="tags">
+  Tagged as <span itemprop='keywords'><a class='tag' href='/blog/tags/scalalei-xing/'><span>Scala类型</span></a></span>
+</span>
+
+
+      </p>
       
-    </footer>
+      
+      
+  
+
+
+
+<div class="sharing">
+  <ul>
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+      
+      
+      
+      <p class="meta">
+        
+        <a class="basic-alignment left" href="/blog/2015/12/28/programming-scala-2nd-edition-chapter-1zero-to-sixty-introducing-scala/" title="Previous Post: Programming Scala, 2nd Edition CHAPTER 1Zero to Sixty: Introducing Scala">&laquo; Programming Scala, 2nd Edition CHAPTER 1Zero to Sixty: Introducing Scala</a>
+        
+        
+        <a class="basic-alignment right" href="/blog/2015/12/29/learning-scala-chapter-1-getting-started-with-the-scalablelanguage/" title="Next Post: Learning Scala CHAPTER 1 Getting Started with the ScalableLanguage">Learning Scala CHAPTER 1 Getting Started with the ScalableLanguage &raquo;</a>
+        
+      </p>
+    </footer>
   </article>
   
 
@@ -337,7 +374,20 @@ xmlns:foaf="http://xmlns.com/foaf/0.1/">
 
   
   
-</div><!-- page -->
+  
+  
+  
+
+  
+  
+
+<section>
+
+
+</section>
+
+
+</div><!-- post -->
 
 
 
@@ -582,6 +632,44 @@ http://opensource.org/licenses/mit-license.php
   "email" : "",
   "url" : "http://scalajiaocheng.github.io",
 
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement":
+  [
+  
+  
+    
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item":
+      {
+        "@id": "http://scalajiaocheng.github.io/blog/categories/scale类型/",
+        "name": "Scale类型"
+      }
+    }
+    
+  
+  
+    
+    ,
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item":
+      {
+        "@id": "http://scalajiaocheng.github.io/blog/tags/scala类型/",
+        "name": "Scala类型"
+      }
+    }
+    
+  
+  ]
 }
 </script>
 
