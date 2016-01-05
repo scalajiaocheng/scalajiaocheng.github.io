@@ -4,7 +4,7 @@
   <title><![CDATA[Tag: Sublime | Scala教程]]></title>
   <link href="http://scalajiaocheng.github.io/blog/tags/sublime/atom.xml" rel="self"/>
   <link href="http://scalajiaocheng.github.io/"/>
-  <updated>2016-01-06T00:30:45+08:00</updated>
+  <updated>2016-01-06T00:42:02+08:00</updated>
   <id>http://scalajiaocheng.github.io/</id>
   <author>
     <name><![CDATA[Scala教程]]></name>
@@ -15,10 +15,22 @@
   
   <entry>
     <title type="html"><![CDATA[如何让sublime text3左侧显示目录树]]></title>
-    <link href="http://scalajiaocheng.github.io/blog/2016/01/06/%E5%A6%82%E4%BD%95%E8%AE%A9sublime%20text3%E5%B7%A6%E4%BE%A7%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%BD%95%E6%A0%91/"/>
-    <updated>2016-01-06T08:29:18+08:00</updated>
-    <id>http://scalajiaocheng.github.io/blog/2016/01/06/如何让sublime text3左侧显示目录树</id>
-    <content type="html"><![CDATA[
+    <link href="http://scalajiaocheng.github.io/blog/2016/01/06/sublime-zuoce-mulushu/"/>
+    <updated>2016-01-06T00:42:01+08:00</updated>
+    <id>http://scalajiaocheng.github.io/blog/2016/01/06/sublime-zuoce-mulushu</id>
+    <content type="html"><![CDATA[<p>打开sublime text3程序，然后点击<code>file</code>-&gt;<code>open folder</code>打开你要显示的目录就行。      <br />
+<!-- more --></p>
+
+<div class="group"></div>
+
+<div class="center_wrapper">
+  <div></div>
+  <div>
+    
+
+  </div>
+</div>
+
 ]]></content>
   </entry>
   
