@@ -5,7 +5,7 @@
   <link href="http://scalajiaocheng.github.io/atom.xml" rel="self"/>
   <link href="http://scalajiaocheng.github.io/"/>
   
-  <updated>2016-01-06T00:40:12+08:00</updated>
+  <updated>2016-01-06T00:42:01+08:00</updated>
   <id>http://scalajiaocheng.github.io/</id>
   <author>
     <name><![CDATA[Scala教程]]></name>
@@ -13,6 +13,14 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sublime zuoce mulushu]]></title>
+    <link href="http://scalajiaocheng.github.io/blog/2016/01/06/sublime-zuoce-mulushu/"/>
+    <updated>2016-01-06T00:42:01+08:00</updated>
+    <id>http://scalajiaocheng.github.io/blog/2016/01/06/sublime-zuoce-mulushu</id>
+    <content type="html"><![CDATA[ <a href="http://scalajiaocheng.github.io/blog/2016/01/06/sublime-zuoce-mulushu/">Read on <i class="fa fa-hand-o-right"></i></a>]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Scala的虚无与飘渺]]></title>
