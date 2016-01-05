@@ -1,4 +1,559 @@
-<!DOCTYPE html> <!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]--> <!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]--> <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]--> <head> <meta charset="utf-8"> <title>Scala教程</title> <meta name="author" content="Scala教程"> <meta name="title" content="Scala教程"> <meta name="description" content="Jan 3rd, 2016 Top › Scala › Scala Scala的虚无与飘渺 Null-&gt;null Nothing Nil-&gt;List[Nothing] None-&gt;Option Unit 很多人抱怨Scala相比于Java过于复杂了： &hellip;"> <meta property="og:title" content="Scala教程"> <meta property="og:type" content="blog"> <meta property="og:description" content="Jan 3rd, 2016 Top › Scala › Scala Scala的虚无与飘渺 Null-&gt;null Nothing Nil-&gt;List[Nothing] None-&gt;Option Unit 很多人抱怨Scala相比于Java过于复杂了： &hellip;"> <meta property="og:url" content="http://scalajiaocheng.github.io/"> <meta property="og:site_name" content="Scala教程"> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="canonical" href="http://scalajiaocheng.github.io/"> <link href="" rel="icon"> <link href="http://scalajiaocheng.github.io/atom.xml" rel="alternate" title="Scala教程" type="application/atom+xml"> <link id="screen-css" href="/stylesheets/screen.css" rel="stylesheet"> <script>jekyll_var=function(b,a){if(a!="site"&&b in jekyll_var.page){return jekyll_var.page[b];}else{if(a!="page"&&b in jekyll_var.site){return jekyll_var.site[b];}else{return null;}}};jekyll_var.site={related_posts_show:"5",random_posts:"5",random_local:false,mandrill:true,mandrill_key:"",mandrill_from:"",mandrill_to_email:"",mandrill_to_name:"",n_scroll_fixed:"0"};jekyll_var.page={};</script> </head> <body> <header role="banner"><h1> <a href="/"> Scala教程 </a> </h1> <h2>专注Scala</h2> </header> <nav role="navigation"><div class="main-navigation"> <p class="nav-marks"> </p> <p> <p class="nav-links"> <span><a href="/blog/archives/" class="link_btn">Archives</a></span> <span><a href="/yourpage/" class="link_btn">yourpage</a></span> </p> </p> </div> </nav> <div id="main"> <div id="content"> <div class="blog-index" itemscope itemtype="http://schema.org/Blog"> <!-- <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/"> <rdf:Description rdf:about="http://scalajiaocheng.github.io/"> <foaf:maker rdf:parseType="Resource"> <foaf:holdsAccount> <foaf:OnlineAccount foaf:accountName=""> <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/"> </foaf:accountServiceHomepage> </foaf:OnlineAccount> </foaf:holdsAccount> </foaf:maker> </rdf:Description> </rdf:RDF> --> <article> </article> <article class="index-article" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"> <header> <div class="meta"> <time datetime='2016-01-03T17:46:05+08:00'><span class='time'>Jan 3rd, 2016</span> <ol class="breadcrumbs"> <li><a href="http://scalajiaocheng.github.io"><span>Top</span></a></li> <li><span class="breadcrumbs_separator"> › </span><a href="/blog/categories/scala/"><span>Scala</span></a></li> <li><span class="breadcrumbs_separator"> › </span><a href="/blog/tags/scala/"><span>Scala</span></a> </li> </ol> </div> <h1 class="entry-title" itemprop="name headline"><a href="/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/" itemprop="url">Scala的虚无与飘渺</a></h1> </header> <div class="sharing"> <ul> </ul> </div> <div class="entry-content index_click_box" itemprop="articleBody"> <div class="group"> <p>Null-&gt;null <br/> Nothing <br/> Nil-&gt;List[Nothing] <br/> None-&gt;Option <br/> Unit <br/> 很多人抱怨Scala相比于Java过于复杂了：大部分使用过Scala的程序员都没有能深刻理解它的类型系统和Scala的函数式编程。Scala的类型系统跟Java和C++很不一样，Scala想把面向对象纯粹化（学院派的作风？），不能有破坏面向对象的一切因素出现。<code>null</code>、<code>NULL</code>、<code>int</code>、…这些都是不和谐的东西，应该割掉。Scala又给了太多了空间给程序员，你可以使用传统的命令式编程风格，也可以使用函数式风格，一个语言写出了不同的代码。这个跟汉语有很多方言，极为相似。太多的自由会浪费Scala的一片好心。一个思路是在封装完Java的功能后，尽量使用Scala推荐的函数式风格来写面向对象的程序。 <br/> 进入Scala，你就进入了虚无缥缈的太虚境地。在何为有？何为无？的问题上？Scala的设计走得很远。Scala的有即<code>Any</code>，Scala的无是<code>Null</code>，<code>null</code>，<code>Nil</code>，<code>Nothing</code>，<code>None</code>，<code>Unit</code>。Scala的无太让人手足无措，今天就讨论Scala的无。 <br/> 要想在正确的地方使用正确的无，就要先理解它们分别表示的含义。</p> <a class="click_box_link" href="/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/">Read on <i class="fa fa-hand-o-right"></i></a> </div> </div> </article> <div class="pagination"> <a href="/blog/archives">Blog Archives</a> </div><!-- pagination --> </div><!-- blog-index --> <aside class="sidebar"> <section class="group"> <h1>About Me</h1> </section> <section> <h1><a href="/blog/archives/">Recent Posts</a></h1> <ul id="recent_posts" class="posts"> <li class="post index_click_box"> <div class="group"> <a class="click_box_link" href="/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/">Scala的虚无与飘渺</a> </div> </li> </ul> </section> <section> <h1>Monthly Archives</h1> <div class="monthly_archive"><ul><li><span class="monthly_archive_year_span">2016 (1)</span></li><ul class="monthly_archive_month_list monthly_archive_open"><li><a href='/blog/2016/01/'>JAN (1)</a></li></ul></ul></div> </section> <section> <h1>Categories</h1> <ul id="category-list"><li><a href='/blog/categories/scala'>Scala (1)</a></li></ul> </section> <section> <h1>Tag Cloud</h1> <span id="tag-cloud"><a href='/blog/tags/scala' style='font-size: 160.0%'>Scala(1)</a> </span> </section> <section> <h1></h1> <ul id="popular_posts" class="posts"> </ul> </section> <section> <h1 id="random-link">Random Posts</h1> <span id="random-shuffle" class="link_btn">Shuffle!</span> <div id="random-posts"> <ul class="posts" id="random-posts-list"> </ul> </div> <script>if(!("entry_list" in window)){entry_list=['<div class="group">              <a class="click_box_link" href="/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/">Scala的虚无与飘渺</a></div>'];}</script> </section> </aside> </div><!-- content --> </div><!-- main --> <footer role="contentinfo"><div class="center_wrapper"> <div> <a href="mailto:">Contact</a> </div> <div> Copyright &copy; 2016 - Scala教程 - <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> <span class="credit">, with theme <a href="https://github.com/rcmdnk/octogray">octogray</a></span> </div> <!-- Licenses * /javascripts/all.js (footnote.js, from https://github.com/fcy/footnote-octopress) Copyright © 2011 Felipe Cypriano Released under the MID license http://opensource.org/licenses/mit-license.php --> </div> </footer> <script>(function(e){var b,c=e.getElementsByTagName("script")[0];a=function(d,f){if(!e.getElementById(f)){b=e.createElement("link");b.rel="stylesheet";b.href=d;if(f){b.id=f;}c.parentNode.insertBefore(b,c);}};a("//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css","font-awesome-css");})(document);</script> <script src="/javascripts/jquery.min.js" defer></script> <script>!window.jQuery&&document.write(unescape('%3Cscript src="/javascripts/jquery.min.js"%3E%3C/script%3E'));</script> <script src="/javascripts/all.js" defer></script> <script src="/javascripts/share-custom.js" defer></script> <script type="application/ld+json">
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>Scala教程</title>
+  <meta name="author" content="Scala教程">
+  
+  
+  <meta name="title" content="Scala教程">
+  <meta name="description" content="Jan 6th, 2016 Top › Sublime › Sublim 如何让sublime text3左侧显示目录树">
+  
+  
+  <meta property="og:title" content="Scala教程">
+  <meta property="og:type" content="blog">
+  <meta property="og:description" content="Jan 6th, 2016 Top › Sublime › Sublim 如何让sublime text3左侧显示目录树">
+  
+  <meta property="og:url" content="http://scalajiaocheng.github.io/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:site_name" content="Scala教程">
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="http://scalajiaocheng.github.io/">
+  <link href="" rel="icon">
+  <link href="http://scalajiaocheng.github.io/atom.xml" rel="alternate" title="Scala教程" type="application/atom+xml">
+  <link id="screen-css" href="/stylesheets/screen.css" rel="stylesheet">
+  
+
+  <script>jekyll_var=function(i,j){if(j!="site" && i in jekyll_var.page)return jekyll_var.page[i];else if(j!="page" && i in jekyll_var.site)return jekyll_var.site[i];else return null;};jekyll_var["site"]={related_posts_show:"5",random_posts:"5",random_local:false,mandrill:true,mandrill_key:"",mandrill_from:"",mandrill_to_email:"",mandrill_to_name:"",n_scroll_fixed:"0",};jekyll_var["page"]={};</script>
+</head>
+
+<body   >
+
+<header role="banner"><h1>
+  <a href="/">
+  
+  Scala教程
+  </a>
+</h1>
+
+  <h2>专注Scala</h2>
+
+
+</header>
+<nav role="navigation"><div class="main-navigation">
+  
+  <p class="nav-marks">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+  
+  <p>
+    <p class="nav-links">
+  <span><a href="/blog/archives/" class="link_btn" >Archives</a></span>
+  <span><a href="/yourpage/" class="link_btn" >yourpage</a></span>
+</p>
+
+  </p>
+  
+  
+  
+  
+</div>
+</nav>
+
+  <div id="main">
+    <div id="content">
+      <div class="blog-index" itemscope itemtype="http://schema.org/Blog">
+  
+  
+
+<!--
+<rdf:RDF
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://scalajiaocheng.github.io/">
+<foaf:maker rdf:parseType="Resource">
+<foaf:holdsAccount>
+<foaf:OnlineAccount foaf:accountName="">
+<foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/">
+</foaf:accountServiceHomepage>
+</foaf:OnlineAccount>
+</foaf:holdsAccount>
+</foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+-->
+
+
+
+<article>
+  
+
+</article>
+
+
+  
+  
+  <article class="index-article" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+    
+  
+
+
+<header>
+  
+  <div class="meta">
+    <time datetime='2016-01-06T08:30:07+08:00'><span class='time'>Jan 6th, 2016</span>
+    
+  
+
+<ol class="breadcrumbs">
+  <li><a href="http://scalajiaocheng.github.io"><span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/categories/sublime/"><span>Sublime</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/tags/sublim/"><span>Sublim</span></a>
+    
+    </li>
+  
+</ol>
+
+
+  </div>
+  
+  
+  <h1 class="entry-title" itemprop="name headline"><a href="/blog/2016/01/06/%E5%A6%82%E4%BD%95%E8%AE%A9sublime%20text3%E5%B7%A6%E4%BE%A7%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%BD%95%E6%A0%91/" itemprop="url">如何让sublime text3左侧显示目录树</a></h1>
+  
+</header>
+
+
+
+
+
+
+
+  
+
+
+
+<div class="sharing">
+  <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+
+
+
+
+<div class="entry-content index_click_box" itemprop="articleBody">
+  <div class="group">
+    
+    
+
+    
+    
+  </div>
+</div>
+
+
+  </article>
+  
+  
+  <article class="index-article" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+    
+  
+
+
+<header>
+  
+  <div class="meta">
+    <time datetime='2016-01-06T08:29:18+08:00'><span class='time'>Jan 6th, 2016</span>
+    
+  
+
+<ol class="breadcrumbs">
+  <li><a href="http://scalajiaocheng.github.io"><span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/categories/sublime/"><span>Sublime</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/tags/sublime/"><span>Sublime</span></a>
+    
+    </li>
+  
+</ol>
+
+
+  </div>
+  
+  
+  <h1 class="entry-title" itemprop="name headline"><a href="/blog/2016/01/06/%E5%A6%82%E4%BD%95%E8%AE%A9sublime%20text3%E5%B7%A6%E4%BE%A7%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%BD%95%E6%A0%91/" itemprop="url">如何让sublime text3左侧显示目录树</a></h1>
+  
+</header>
+
+
+
+
+
+
+
+  
+
+
+
+<div class="sharing">
+  <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+
+
+
+
+<div class="entry-content index_click_box" itemprop="articleBody">
+  <div class="group">
+    
+    
+
+    
+    
+  </div>
+</div>
+
+
+  </article>
+  
+  
+  <article class="index-article" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+    
+  
+
+
+<header>
+  
+  <div class="meta">
+    <time datetime='2016-01-03T17:46:05+08:00'><span class='time'>Jan 3rd, 2016</span>
+    
+  
+
+<ol class="breadcrumbs">
+  <li><a href="http://scalajiaocheng.github.io"><span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/categories/scala/"><span>Scala</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> › </span><a href="/blog/tags/scala/"><span>Scala</span></a>
+    
+    </li>
+  
+</ol>
+
+
+  </div>
+  
+  
+  <h1 class="entry-title" itemprop="name headline"><a href="/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/" itemprop="url">Scala的虚无与飘渺</a></h1>
+  
+</header>
+
+
+
+
+
+
+
+  
+
+
+
+<div class="sharing">
+  <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+
+
+
+
+<div class="entry-content index_click_box" itemprop="articleBody">
+  <div class="group">
+    
+    <p>Null-&gt;null <br />
+Nothing <br />
+Nil-&gt;List[Nothing]  <br />
+None-&gt;Option <br />
+Unit  <br />
+很多人抱怨Scala相比于Java过于复杂了：大部分使用过Scala的程序员都没有能深刻理解它的类型系统和Scala的函数式编程。Scala的类型系统跟Java和C++很不一样，Scala想把面向对象纯粹化（学院派的作风？），不能有破坏面向对象的一切因素出现。<code>null</code>、<code>NULL</code>、<code>int</code>、…这些都是不和谐的东西，应该割掉。Scala又给了太多了空间给程序员，你可以使用传统的命令式编程风格，也可以使用函数式风格，一个语言写出了不同的代码。这个跟汉语有很多方言，极为相似。太多的自由会浪费Scala的一片好心。一个思路是在封装完Java的功能后，尽量使用Scala推荐的函数式风格来写面向对象的程序。  <br />
+进入Scala，你就进入了虚无缥缈的太虚境地。在何为有？何为无？的问题上？Scala的设计走得很远。Scala的有即<code>Any</code>，Scala的无是<code>Null</code>，<code>null</code>，<code>Nil</code>，<code>Nothing</code>，<code>None</code>，<code>Unit</code>。Scala的无太让人手足无措，今天就讨论Scala的无。  <br />
+要想在正确的地方使用正确的无，就要先理解它们分别表示的含义。</p>
+
+
+    
+    
+    <a class="click_box_link" href="/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/">Read on <i class="fa fa-hand-o-right"></i></a>
+    
+  </div>
+</div>
+
+
+  </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div><!-- pagination -->
+</div><!-- blog-index -->
+
+
+<aside class="sidebar">
+  <section class="group">
+<h1>About Me</h1>
+
+
+</section>
+<section>
+  <h1><a href="/blog/archives/">Recent Posts</a></h1>
+  <ul id="recent_posts" class="posts">
+    
+    <li class="post index_click_box">
+      <div class="group">
+  
+  
+  
+  
+  
+  
+  <a class="click_box_link" href="/blog/2016/01/06/%E5%A6%82%E4%BD%95%E8%AE%A9sublime%20text3%E5%B7%A6%E4%BE%A7%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%BD%95%E6%A0%91/">如何让sublime text3左侧显示目录树</a>
+</div>
+
+    </li>
+    
+    <li class="post index_click_box">
+      <div class="group">
+  
+  
+  
+  
+  
+  
+  <a class="click_box_link" href="/blog/2016/01/06/%E5%A6%82%E4%BD%95%E8%AE%A9sublime%20text3%E5%B7%A6%E4%BE%A7%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%BD%95%E6%A0%91/">如何让sublime text3左侧显示目录树</a>
+</div>
+
+    </li>
+    
+    <li class="post index_click_box">
+      <div class="group">
+  
+  
+  
+  
+  
+  
+  <a class="click_box_link" href="/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/">Scala的虚无与飘渺</a>
+</div>
+
+    </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Monthly Archives</h1>
+  <div class="monthly_archive"><ul><li><span class="monthly_archive_year_span">2016 (3)</span></li><ul class="monthly_archive_month_list monthly_archive_open"><li><a href='/blog/2016/01/'>JAN (3)</a></li></ul></ul></div>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="category-list"><li><a href='/blog/categories/scala'>Scala (1)</a></li><li><a href='/blog/categories/sublime'>Sublime (2)</a></li><li><a href='/blog/categories/文本编辑器'>文本编辑器 (1)</a></li><li><a href='/blog/categories/编辑'>编辑 (1)</a></li></ul>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/tags/scala' style='font-size: 160.0%'>Scala(1)</a> <a href='/blog/tags/sublim' style='font-size: 160.0%'>Sublim(1)</a> <a href='/blog/tags/sublime' style='font-size: 160.0%'>Sublime(1)</a> </span>
+</section>
+<section>
+  <h1></h1>
+  <ul id="popular_posts" class="posts">
+    
+  </ul>
+</section>
+<section>
+  <h1 id="random-link">Random Posts</h1>
+
+  <span id="random-shuffle" class="link_btn">Shuffle!</span>
+  <div id="random-posts">
+    <ul class="posts" id="random-posts-list">
+    </ul>
+  </div>
+  
+  <script>
+    if(!('entry_list' in window)){
+      entry_list=[
+        
+        
+        "<div class=\"group\">              <a class=\"click_box_link\" href=\"/blog/2016/01/06/%E5%A6%82%E4%BD%95%E8%AE%A9sublime%20text3%E5%B7%A6%E4%BE%A7%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%BD%95%E6%A0%91/\">如何让sublime text3左侧显示目录树</a></div>",
+        
+        
+        "<div class=\"group\">              <a class=\"click_box_link\" href=\"/blog/2016/01/06/%E5%A6%82%E4%BD%95%E8%AE%A9sublime%20text3%E5%B7%A6%E4%BE%A7%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%BD%95%E6%A0%91/\">如何让sublime text3左侧显示目录树</a></div>",
+        
+        
+        "<div class=\"group\">              <a class=\"click_box_link\" href=\"/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/\">Scala的虚无与飘渺</a></div>",
+        
+      ];
+    }
+  </script>
+  
+
+</section>
+
+</aside>
+
+
+
+    </div><!-- content -->
+  </div><!-- main -->
+  <footer role="contentinfo"><div class="center_wrapper">
+  <div>
+    
+    <a href="mailto:">Contact</a>
+    
+  </div>
+  <div>
+    Copyright &copy; 2016 - Scala教程 -
+    <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+    <span class="credit">, with theme <a href="https://github.com/rcmdnk/octogray">octogray</a></span>
+  </div>
+  <!--
+Licenses
+
+* /javascripts/all.js (footnote.js, from https://github.com/fcy/footnote-octopress)
+
+Copyright © 2011 Felipe Cypriano
+Released under the MID license
+http://opensource.org/licenses/mit-license.php
+
+-->
+
+</div>
+
+</footer>
+  <script>
+(function (d) {
+  var j, s = d.getElementsByTagName('script')[0];
+  a = function (u, i) {
+    if (!d.getElementById(i)) {
+      j = d.createElement('link');
+      j.rel = 'stylesheet';
+      j.href = u;
+      if (i) {j.id = i;}
+      s.parentNode.insertBefore(j, s);
+    }
+  };
+  
+  a("//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css","font-awesome-css");
+  
+  
+})(document);
+</script>
+
+
+
+  
+  
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+ <script src="/javascripts/jquery.min.js" defer></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/jquery.min.js"%3E%3C/script%3E'))</script>
+<script src="/javascripts/all.js" defer></script>
+
+<script src="/javascripts/share-custom.js" defer></script>
+
+
+
+  
+
+
+
+
+
+<script type="application/ld+json">
 {
   "@context" : "http://schema.org",
   "@type" : "WebSite",
@@ -15,7 +570,10 @@
   }
 
 }
-</script> <script type="application/ld+json">
+</script>
+
+
+<script type="application/ld+json">
 { "@context" : "http://schema.org",
   "@type" : "Person",
   "name" : "Scala教程",
@@ -23,4 +581,9 @@
   "url" : "http://scalajiaocheng.github.io",
 
 }
-</script> </body> </html>
+</script>
+
+
+
+</body>
+</html>

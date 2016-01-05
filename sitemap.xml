@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://scalajiaocheng.github.io/blog/2016/01/06/%E5%A6%82%E4%BD%95%E8%AE%A9sublime%20text3%E5%B7%A6%E4%BE%A7%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%BD%95%E6%A0%91/</loc>
+    <lastmod>2016-01-06T08:30:07+08:00</lastmod>
+  </url>
+  <url>
+    <loc>http://scalajiaocheng.github.io/blog/2016/01/06/%E5%A6%82%E4%BD%95%E8%AE%A9sublime%20text3%E5%B7%A6%E4%BE%A7%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%BD%95%E6%A0%91/</loc>
+    <lastmod>2016-01-06T08:29:18+08:00</lastmod>
+  </url>
+  <url>
     <loc>http://scalajiaocheng.github.io/blog/2016/01/03/scalade-xu-wu-yu-piao-miao/</loc>
     <lastmod>2016-01-03T17:46:05+08:00</lastmod>
   </url>
@@ -32,13 +40,28 @@
     <loc>http://scalajiaocheng.github.io/search.html</loc>
   </url>
   <url>
+    <loc>http://scalajiaocheng.github.io/blog/tags/sublime/</loc>
+  </url>
+  <url>
+    <loc>http://scalajiaocheng.github.io/blog/tags/sublim/</loc>
+  </url>
+  <url>
     <loc>http://scalajiaocheng.github.io/blog/tags/scala/</loc>
+  </url>
+  <url>
+    <loc>http://scalajiaocheng.github.io/blog/2016/01/</loc>
   </url>
   <url>
     <loc>http://scalajiaocheng.github.io/blog/categories/scala/</loc>
   </url>
   <url>
-    <loc>http://scalajiaocheng.github.io/blog/2016/01/</loc>
+    <loc>http://scalajiaocheng.github.io/blog/categories/sublime/</loc>
+  </url>
+  <url>
+    <loc>http://scalajiaocheng.github.io/blog/categories/bian-ji/</loc>
+  </url>
+  <url>
+    <loc>http://scalajiaocheng.github.io/blog/categories/wen-ben-bian-ji-qi/</loc>
   </url>
   <url>
     <loc>http://scalajiaocheng.github.io/linkchecker.html</loc>
